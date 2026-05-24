@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Beirut -->
+        <record id="district_beirut" model="res.district">
+            <field name="name">Beirut</field>
+            <field name="governorate_id" ref="governorate_beirut"/>
+        </record>
+
+        <!-- Mount Lebanon -->
+        <record id="district_metn" model="res.district">
+            <field name="name">Metn</field>
+            <field name="governorate_id" ref="governorate_mount_lebanon"/>
+        </record>
+        <record id="district_keserwan" model="res.district">
+            <field name="name">Keserwan</field>
+            <field name="governorate_id" ref="governorate_mount_lebanon"/>
+        </record>
+        <record id="district_chouf" model="res.district">
+            <field name="name">Chouf</field>
+            <field name="governorate_id" ref="governorate_mount_lebanon"/>
+        </record>
+        <record id="district_aaley" model="res.district">
+            <field name="name">Aaley</field>
+            <field name="governorate_id" ref="governorate_mount_lebanon"/>
+        </record>
+
+        <!-- North -->
+        <record id="district_tripoli" model="res.district">
+            <field name="name">Tripoli</field>
+            <field name="governorate_id" ref="governorate_north"/>
+        </record>
+        <record id="district_zgharta" model="res.district">
+            <field name="name">Zgharta</field>
+            <field name="governorate_id" ref="governorate_north"/>
+        </record>
+        <record id="district_batroun" model="res.district">
+            <field name="name">Batroun</field>
+            <field name="governorate_id" ref="governorate_north"/>
+        </record>
+
+        <!-- South -->
+        <record id="district_sidon" model="res.district">
+            <field name="name">Sidon</field>
+            <field name="governorate_id" ref="governorate_south"/>
+        </record>
+        <record id="district_tyree" model="res.district">
+            <field name="name">Tyre</field>
+            <field name="governorate_id" ref="governorate_south"/>
+        </record>
+        <record id="district_jezzine" model="res.district">
+            <field name="name">Jezzine</field>
+            <field name="governorate_id" ref="governorate_south"/>
+        </record>
+
+        <!-- Nabatieh -->
+        <record id="district_nabatieh_city" model="res.district">
+            <field name="name">Nabatieh</field>
+            <field name="governorate_id" ref="governorate_nabatieh"/>
+        </record>
+        <record id="district_bint_jbeil" model="res.district">
+            <field name="name">Bint Jbeil</field>
+            <field name="governorate_id" ref="governorate_nabatieh"/>
+        </record>
+        <record id="district_marjeyoun" model="res.district">
+            <field name="name">Marjeyoun</field>
+            <field name="governorate_id" ref="governorate_nabatieh"/>
+        </record>
+        <record id="district_hasbaya" model="res.district">
+            <field name="name">Hasbaya</field>
+            <field name="governorate_id" ref="governorate_nabatieh"/>
+        </record>
+
+        <!-- Bekaa -->
+        <record id="district_zahleh" model="res.district">
+            <field name="name">Zahleh</field>
+            <field name="governorate_id" ref="governorate_bekaa"/>
+        </record>
+        <record id="district_rashaya" model="res.district">
+            <field name="name">Rashaya</field>
+            <field name="governorate_id" ref="governorate_bekaa"/>
+        </record>
+        <record id="district_west_bekaa" model="res.district">
+            <field name="name">West Bekaa</field>
+            <field name="governorate_id" ref="governorate_bekaa"/>
+        </record>
+
+        <!-- Baalbek-Hermel -->
+        <record id="district_baalbek" model="res.district">
+            <field name="name">Baalbek</field>
+            <field name="governorate_id" ref="governorate_baalbek_hermel"/>
+        </record>
+        <record id="district_hermel" model="res.district">
+            <field name="name">Hermel</field>
+            <field name="governorate_id" ref="governorate_baalbek_hermel"/>
+        </record>
+
+        <!-- Akkar -->
+        <record id="district_akkar" model="res.district">
+            <field name="name">Akkar</field>
+            <field name="governorate_id" ref="governorate_akkar"/>
+        </record>
+
+    </data>
+</odoo>

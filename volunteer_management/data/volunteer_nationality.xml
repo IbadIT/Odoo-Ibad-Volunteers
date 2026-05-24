@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="volunteer.nationality" id="vn_lebanese">
+            <field name="name">لبناني</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.nationality" id="vn_syrian">
+            <field name="name">سوري</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.nationality" id="vn_palestinian">
+            <field name="name">فلسطيني</field>
+            <field name="from_xml">True</field>
+        </record>
+    </data>
+</odoo>

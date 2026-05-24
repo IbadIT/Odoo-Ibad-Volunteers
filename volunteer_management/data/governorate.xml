@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define Governorates -->
+        <record model="res.governorate" id="governorate_beirut">
+            <field name="name">Beirut</field>
+        </record>
+        <record model="res.governorate" id="governorate_mount_lebanon">
+            <field name="name">Mount Lebanon</field>
+        </record>
+        <record model="res.governorate" id="governorate_north">
+            <field name="name">North</field>
+        </record>
+        <record model="res.governorate" id="governorate_south">
+            <field name="name">South</field>
+        </record>
+        <record model="res.governorate" id="governorate_nabatieh">
+            <field name="name">Nabatieh</field>
+        </record>
+        <record model="res.governorate" id="governorate_bekaa">
+            <field name="name">Bekaa</field>
+        </record>
+        <record model="res.governorate" id="governorate_baalbek_hermel">
+            <field name="name">Baalbek-Hermel</field>
+        </record>
+        <record model="res.governorate" id="governorate_akkar">
+            <field name="name">Akkar</field>
+        </record>
+    </data>
+</odoo>

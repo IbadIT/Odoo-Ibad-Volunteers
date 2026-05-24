@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- View Definition -->
+    <record id="view_volunteer_task_report_form" model="ir.ui.view">
+        <field name="name">volunteer.task.report.wizard.form</field>
+        <field name="model">volunteer.task.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Volunteer Time Report">
+                <group>
+                    <field name="volunteer_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+                <group>
+                    <field name="report_result" readonly="1" nolabel="1"/>
+                </group>
+                <footer>
+                    <button name="action_generate_report" type="object" string="Generate Report" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Definition -->
+    <record id="action_volunteer_task_report" model="ir.actions.act_window">
+        <field name="name">Volunteer Task Report</field>
+        <field name="res_model">volunteer.task.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_volunteer_task_report"
+              name="Volunteer Time Report"
+              parent="menu_volunteer_task_logs_main"
+              action="volunteer_management.action_volunteer_task_report"
+              sequence="2"/>
+
+</odoo>

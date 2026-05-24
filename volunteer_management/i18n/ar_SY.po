@@ -1,0 +1,528 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* volunteer_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250108\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-14 05:59+0000\n"
+"PO-Revision-Date: 2025-01-14 05:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__status__active
+msgid "Active"
+msgstr "ناشط"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__take_photo__allowed
+msgid "Allowed"
+msgstr "أسمح"
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.res_partner_menu_volunteers_config
+msgid "Configuration"
+msgstr "التهيئة"
+
+#. module: volunteer_management
+#: model:ir.model,name:volunteer_management.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: volunteer_management
+#: model_terms:ir.actions.act_window,help:volunteer_management.action_window_volunteer_identification_method
+msgid "Create identification methods"
+msgstr "إنشاء طريقة التعرف على الجماعة"
+
+#. module: volunteer_management
+#: model_terms:ir.actions.act_window,help:volunteer_management.action_window_volunteer_section_detail
+msgid "Create section details"
+msgstr "إنشاء تفاصيل الباب"
+
+#. module: volunteer_management
+#: model_terms:ir.actions.act_window,help:volunteer_management.action_window_volunteer_section
+msgid "Create sections"
+msgstr "إنشاء باب التطوّع "
+
+
+#. module: volunteer_management
+#: model_terms:ir.actions.act_window,help:volunteer_management.action_window_volunteer_nationality
+msgid "Add nationalities"
+msgstr "الجنسيات"
+
+#. module: volunteer_management
+#: model_terms:ir.actions.act_window,help:volunteer_management.action_volunteers
+msgid "Create volunteers"
+msgstr "إنشاءمتطوع"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__create_uid
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__create_uid
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__create_date
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__create_date
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__dob
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__dob
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__display_name
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__display_name
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__display_name
+msgid "Display Name"
+msgstr "اسم العرض "
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__emergency_number
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__emergency_number
+msgid "Emergency Number"
+msgstr "هاتف الطوارىء"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__emergency_contact_name
+msgid "Emergency Contact Name"
+msgstr "اسم جهة الاتصال في حالات الطوارئ"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__gender__female
+msgid "Female"
+msgstr "انثى"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__gender
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__gender
+msgid "Gender"
+msgstr "جنس"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__id
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__id
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__identification_method_id
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__identification_method_id
+msgid "Identification Method"
+msgstr "طريقة التعرف"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__write_uid
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__write_uid
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__write_date
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__write_date
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بواسطة"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__marital_status
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__marital_status
+msgid "Marital Status"
+msgstr "الحالة"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__marital_status__married
+msgid "Married"
+msgstr "متزوج (ة)"
+
+#. module: volunteer_management
+#: model:ir.model,name:volunteer_management.model_ir_ui_menu
+msgid "Menu"
+msgstr "القائمة"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__microsoft_form
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__microsoft_form
+msgid "Microsoft Form"
+msgstr ""
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_identification_method__name
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section__name
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_section_detail__name
+msgid "Name"
+msgstr "الاسم بالإنجليزية"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__name_ar
+msgid "Name (Arabic)"
+msgstr "الاسم بالعربية"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__national_nb
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__national_nb
+msgid "National Nb"
+msgstr "رقم الهوية"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__nationality_id
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__nationality_id
+msgid "Nationality"
+msgstr "الجنسية "
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__nationality_id__lebanese
+msgid "Lebanese"
+msgstr "لبناني"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__nationality_id__syrian
+msgid "Syrian"
+msgstr "سوري"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__nationality_id__palestinian
+msgid "Palestinian"
+msgstr "فلسطيني"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__microsoft_form__no
+msgid "No"
+msgstr "لا"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__status__not_active
+msgid "Not Active"
+msgstr "غير ناشط"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__take_photo__not_allowed
+msgid "Not Allowed"
+msgstr "لا"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__veiled__not_veiled
+msgid "Not Veiled"
+msgstr "غير محجبة"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__volunteering_period__permanent
+msgid "Permanent"
+msgstr "دائم"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__phone
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__phone
+msgid "Phone"
+msgstr "رقم الهاتف"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__volunteering_period__seasonal
+msgid "Seasonal"
+msgstr "موسمي"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__marital_status__single
+msgid "Single"
+msgstr "أعزب/عزباء"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__specialization
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__specialization
+msgid "Specialization"
+msgstr "الإختصاص- العمل"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__status
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__status__stopped
+msgid "Stopped"
+msgstr "متوقف"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__submission_date
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__submission_date
+msgid "Submission Date"
+msgstr "تاريخ ملىء الإستمارة"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__take_photo
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__take_photo
+msgid "Take Photo"
+msgstr "تصوير"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__veiled
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__veiled
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__veiled__veiled
+msgid "Veiled"
+msgstr "محجبة"
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_window_volunteer_identification_method
+#: model:ir.model,name:volunteer_management.model_volunteer_identification_method
+msgid "Volunteer Identification Method"
+msgstr "طريقة التعرف على الجماعة"
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteer_identification_method
+msgid "Volunteer Identification Methods"
+msgstr "طريقة التعرف على الجماعة"
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_window_volunteer_section
+#: model:ir.model,name:volunteer_management.model_volunteer_section
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__section_id
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__section_id
+msgid "Volunteer Section"
+msgstr "باب التطوّع "
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_window_volunteer_section_detail
+#: model:ir.model,name:volunteer_management.model_volunteer_section_detail
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__detail_id
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__detail_id
+msgid "Volunteer Section Detail"
+msgstr "تفاصيل الباب"
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteer_section_detail
+msgid "Volunteer Section Details"
+msgstr "تفاصيل الباب"
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteer_section
+msgid "Volunteer Sections"
+msgstr "باب التطوّع "
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteer_nationality
+msgid "Nationalities"
+msgstr "الجنسيات"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__volunteering_period
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__volunteering_period
+msgid "Volunteering Period"
+msgstr "فترة التطوّع"
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_volunteers
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteers
+#: model:ir.ui.menu,name:volunteer_management.res_partner_menu_volunteers
+msgid "Volunteers"
+msgstr "المتطوعين"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__marital_status__widowed
+msgid "Widowed"
+msgstr "أرمل (ة)"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__microsoft_form__yes
+msgid "Yes"
+msgstr "نعم"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__submission_form_date
+#: model:ir.model.fields,field_description:volunteer_management.field_res_users__submission_form_date
+msgid "Submission Date"
+msgstr "تاريخ التسجيل"
+
+#. module: volunteer_management
+#: model:ir.ui.view,name:volunteer_management.view_volunteer_task_log_form
+msgid "Volunteer Task Log"
+msgstr "سجل مهام المتطوع"
+
+#. module: volunteer_management
+#: model:ir.ui.view,name:volunteer_management.view_volunteer_task_log_tree
+msgid "Volunteer Task Logs"
+msgstr "سجلات مهام المتطوع"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__volunteer_id
+msgid "Volunteer"
+msgstr "المتطوع"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__section_id
+msgid "Section"
+msgstr "القسم"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__detail_id
+msgid "Detail"
+msgstr "التفاصيل"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__checkin_date
+msgid "Check-in Date"
+msgstr "تاريخ الدخول"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__checkout_date
+msgid "Check-out Date"
+msgstr "تاريخ الخروج"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__total_time
+msgid "Total Time"
+msgstr "الوقت الإجمالي"
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_volunteer_task_log
+msgid "Volunteer Task Logs"
+msgstr "سجلات مهام المتطوع"
+
+#. module: volunteer_management
+#: model:ir.ui.menu,name:volunteer_management.menu_volunteer_task_logs
+msgid "Task Logs"
+msgstr "سجلات المهام"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__hours_spent
+msgid "Total Hours"
+msgstr "الساعات المستغرقة في المهام"
+
+#. module: volunteer_management
+#: model:volunteer.task.log.line,field_description:volunteer_management.field_volunteer_task_log_line__hours_spent
+msgid "Hours Spent"
+msgstr "عدد الساعات"
+
+#. module: volunteer_management
+#: code:Ibad-Odoo/volunteer_management/models/task.py:0
+msgid "The total hours spent on tasks (%s hours) cannot exceed the total time spent onsite (%s hours)."
+msgstr "لا يمكن أن تتجاوز إجمالي الساعات المستغرقة في المهام (%s ساعات) الوقت الإجمالي الذي قُضي في الموقع (%s ساعات)."
+
+#. module: volunteer_management
+#: code:Ibad-Odoo/volunteer_management/views/task.xml:0
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: volunteer_management
+#: code:custom-addons17/Ibad-Odoo/volunteer_management/views/task.xml:0
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: volunteer_management
+#: code:custom-addons17/Ibad-Odoo/volunteer_management/views/task.xml:0
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_volunteer_task__total_hours
+msgid "Total Hours"
+msgstr "إجمالي الساعات"
+
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_window_volunteer_section
+#: model:ir.model,name:volunteer_management.model_volunteer_section
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__governorate_id
+msgid "Governorate"
+msgstr "المحافظة"
+
+#. module: volunteer_management
+#: model:ir.actions.act_window,name:volunteer_management.action_window_volunteer_section
+#: model:ir.model,name:volunteer_management.model_volunteer_section
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__district_id
+msgid "District"
+msgstr "قضاء"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__area
+msgid "Area"
+msgstr "منطقة"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__street
+msgid "Street"
+msgstr "الشارع"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__building_block
+msgid "Building/Block"
+msgstr "المبنى / البلوك"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__floor
+msgid "Floor"
+msgstr "الطابق"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__educational_section_name
+msgid "Section Name"
+msgstr "اسم القسم"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__is_in_educational_section
+msgid "Is Beneficiary in Educational Section?"
+msgstr "هل المستفيد في القسم التربوي؟"
+
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__beneficiary__yes
+msgid "yes"
+msgstr "نعم"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__beneficiary__no
+msgid "no"
+msgstr "لا"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__is_in_educational_section__no
+msgid "no"
+msgstr "لا"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__is_in_educational_section__yes
+msgid "yes"
+msgstr "نعم"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__beneficiary_type
+msgid "Beneficiary type"
+msgstr "نوع الاستفادة"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__beneficiary_number
+msgid "Beneficiary number
+msgstr "رقم المستفيد"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__beneficiary
+msgid "Beneficiary"
+msgstr "مستفيد"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__beneficiary
+msgid "Beneficiary"
+msgstr "مستفيد"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__is_in_educational_section
+msgid "Is Beneficiary in Educational Section?"
+msgstr "هل المستفيد في القسم التربوي؟"

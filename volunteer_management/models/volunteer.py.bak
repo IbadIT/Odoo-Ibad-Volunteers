@@ -1,0 +1,47 @@
+from odoo import models, fields
+from odoo.exceptions import UserError, ValidationError
+
+
+def rtn_valid_records(record_ids):
+    return record_ids.filtered(lambda r: not r.from_xml and not r.partner_ids)
+
+class VolunteerSection(models.Model):
+    _name = 'volunteer.section'
+    _description = 'Volunteer Section'
+
+    name = fields.Char(required=True)
+    partner_ids = fields.One2many('res.partner', 'section_id')
+    from_xml = fields.Boolean(default=False)
+
+    def unlink(self):
+        if self.partner_ids:
+            raise ValidationError('Cannot delete section linked to volunteer')
+        return super(VolunteerSection, rtn_valid_records(self)).unlink()
+
+
+class VolunteerSectionDetail(models.Model):
+    _name = 'volunteer.section.detail'
+    _description = 'Volunteer Section Detail'
+
+    name = fields.Char(required=True)
+    partner_ids = fields.One2many('res.partner', 'detail_id')
+    from_xml = fields.Boolean(default=False)
+
+    def unlink(self):
+        if self.partner_ids:
+            raise ValidationError('Cannot delete section detail linked to volunteer')
+        return super(VolunteerSectionDetail, rtn_valid_records(self)).unlink()
+
+
+class VolunteerIdentificationMethod(models.Model):
+    _name = 'volunteer.identification.method'
+    _description = 'Volunteer Identification Method'
+
+    name = fields.Char(required=True)
+    partner_ids = fields.One2many('res.partner', 'identification_method_id')
+    from_xml = fields.Boolean(default=False)
+
+    def unlink(self):
+        if self.partner_ids:
+            raise ValidationError('Cannot delete identification mwthod linked to volunteer')
+        return super(VolunteerIdentificationMethod, rtn_valid_records(self)).unlink()

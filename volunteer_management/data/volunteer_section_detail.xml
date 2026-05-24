@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="volunteer.section.detail" id="vsd_1">
+            <field name="name">LAU</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_2">
+            <field name="name">LAU - USAID</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_3">
+            <field name="name">BAU</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_4">
+            <field name="name">LIU</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_5">
+            <field name="name">البلمند</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_6">
+            <field name="name">اللبنانيّة</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_7">
+            <field name="name">هايغازيان</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_8">
+            <field name="name">رفيق الحريري</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_9">
+            <field name="name">LIS</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_10">
+            <field name="name">البيادر</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_11">
+            <field name="name">عمر بن الخطاب </field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_12">
+            <field name="name">السيدة الأورتودوكسية</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_13">
+            <field name="name">كفالة يتيم</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_14">
+            <field name="name">قدامى العباد - ذكور</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_15">
+            <field name="name">قدامى العباد - إناث</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_16">
+            <field name="name">نادي العباد الرياضي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_17">
+            <field name="name">القسم النسائي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_18">
+            <field name="name">مدرسة القرلآن الكريم - ذكور</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_19">
+            <field name="name">مدرسة القرلآن الكريم - إناث</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_20">
+            <field name="name">كشافة بيروت</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_21">
+            <field name="name">مرشدات بيروت</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section.detail" id="vsd_22">
+            <field name="name">غيره</field>
+            <field name="from_xml">True</field>
+        </record>
+    </data>
+</odoo>

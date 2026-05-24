@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="volunteer.identification.method" id="vim_1">
+            <field name="name">أهل</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_2">
+            <field name="name">أصدقاء</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_3">
+            <field name="name">مدرسة القرآن الكريم</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_4">
+            <field name="name">كشاف</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_5">
+            <field name="name">النادي الرياضي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_6">
+            <field name="name">التواصل الإجتماعي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_7">
+            <field name="name">كفالة يتيم</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_8">
+            <field name="name">قدامى العباد - ذكو</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_9">
+            <field name="name">قدامى العباد - إناث</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_10">
+            <field name="name">نادي العباد الرياضي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_11">
+            <field name="name">القسم النسائي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_12">
+            <field name="name">مدرسة القرلآن الكريم - ذكور</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_13">
+            <field name="name">مدرسة القرلآن الكريم - إناث</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_14">
+            <field name="name">كشافة بيروت</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_15">
+            <field name="name">مرشدات بيروت</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.identification.method" id="vim_16">
+            <field name="name">غيره</field>
+            <field name="from_xml">True</field>
+        </record>
+    </data>
+</odoo>

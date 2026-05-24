@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_volunteer_section,volunteer_section,model_volunteer_section,,1,1,1,1
+access_volunteer_section_detail,volunteer_section_detail,model_volunteer_section_detail,,1,1,1,1
+access_volunteer_identification_method,volunteer_identification_method,model_volunteer_identification_method,,1,1,1,1
+access_volunteer_nationality,volunteer_nationality,model_volunteer_nationality,,1,1,1,1
+access_volunteer_task_user,access_volunteer_task_user,model_volunteer_task,,1,1,1,1
+access_volunteer_task_log_line_user,access_volunteer_task_log_line_user,model_volunteer_task_log_line,,1,1,1,1
+access_governorate_section,governorate_section,model_res_governorate,,1,1,1,1
+access_district_section,district_section,model_res_district,,1,1,1,1
+access_volunteer_task_report_wizard_user,access_volunteer_task_report_wizard_user,model_volunteer_task_report_wizard,base.group_user,1,1,1,1
+access_certification_master,access.certification.master,model_certification_master,base.group_user,1,1,1,1
+access_res_partner_certification,access.res.partner.certification,model_res_partner_certification,base.group_user,1,1,1,1

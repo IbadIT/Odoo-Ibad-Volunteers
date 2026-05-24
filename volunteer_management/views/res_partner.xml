@@ -1,0 +1,133 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_partner_form_inherit">
+      <field name="name">res.partner.form.inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='vat']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='mobile']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='lang']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='website']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='category_id']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//notebook" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+
+       
+          
+
+
+        <xpath expr="//notebook" position="before">
+          <group>
+            <group>
+              <field name="governorate_id"/>
+              <field name="district_id"/>
+              <field name="area"/>
+              <field name="street"/>
+              <field name="building_block"/>
+              <field name="floor"/>
+            </group>
+            <group>
+              <field name="is_volunteer" invisible="1" default="True"/>
+              <field name="name_ar"/>
+              <field name="dob"/>
+              <field name="status"/>
+              <field name="gender" widget="radio"/>
+              <field name="veiled" invisible="gender != 'female'"/>
+              <field name="take_photo"/>
+              <field name="national_nb"/>
+              <field name="nationality_id" options="{'no_open': True, 'no_create': True}"/>
+              <field name="marital_status"/>
+              <field name="specialization"/>
+            </group>
+            <group>
+              <field name="emergency_contact_name"/>
+              <field name="emergency_number" widget="phone"/>
+              <field name="volunteering_period"/>
+              <field name="microsoft_form"/>
+              <field name="section_id" options="{'no_open': True, 'no_create': True}"/>
+              <field name="detail_id" options="{'no_open': True, 'no_create': True}"/>
+              <field name="identification_method_id" options="{'no_open': True, 'no_create': True}"/>
+              <field name="submission_form_date"/>
+            </group>
+            <group>
+              <field name="beneficiary" widget="radio"/>
+              <field name="beneficiary_type"  invisible="beneficiary != 'yes'"/>
+              <field name="beneficiary_number"  invisible="beneficiary != 'yes'"/>
+              <field name="is_in_educational_section" widget="radio" invisible="beneficiary != 'yes'" />
+              <field name="educational_section_name"  invisible="is_in_educational_section != 'yes'"/>
+            </group>
+           
+               <notebook position="inside">
+                <page string="Certifications">
+                    <field name="certification_ids" context="{'default_partner_id': active_id}">
+                        <tree editable="bottom">
+                            <field name="certification_id"/>
+                            <field name="issue_date"/>
+                            <field name="attachment_ids"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+           
+          </group>
+        </xpath>
+      </field>
+    </record>
+          <record id="view_res_partner_form_with_attachments" model="ir.ui.view">
+              <field name="name">res.partner.form.attachments</field>
+              <field name="model">res.partner</field>
+              <field name="inherit_id" ref="base.view_partner_form"/>
+              <field name="arch" type="xml">
+                  <notebook position="inside">
+                      <page string="Documents">
+                          <field name="attachment_ids" widget="many2many_binary"/>
+                      </page>
+                  </notebook>
+              </field>
+          </record>
+    <record id="action_volunteers" model="ir.actions.act_window">
+        <field name="name">Volunteering</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form,activity,graph,pivot</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="context">{'default_is_company': False, 'default_is_volunteer': True, 'from_volunteers': True}</field>
+        <field name="domain">[('is_volunteer', '=', True)]</field> 
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create volunteers
+          </p>
+        </field>
+    </record>
+
+    <menuitem name="Volunteering"
+          id="menu_volunteers"
+          sequence="20"
+          web_icon="contacts,static/description/icon.png"
+          groups="base.group_user,base.group_partner_manager"/>
+
+    <menuitem id="res_partner_menu_volunteers"
+          name="Volunteering"
+          action="action_volunteers"
+          parent="menu_volunteers"
+          sequence="2"/>
+
+    <menuitem id="res_partner_menu_volunteers_config"
+        name="Configuration"
+        parent="menu_volunteers"
+        groups="base.group_system"
+        sequence="2"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,70 @@
+<odoo>
+    <!-- Certification Master Views -->
+    <record id="view_certification_master_form" model="ir.ui.view">
+        <field name="name">certification.master.form</field>
+        <field name="model">certification.master</field>
+        <field name="arch" type="xml">
+            <form string="Certification">
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_certification_master_tree" model="ir.ui.view">
+        <field name="name">certification.master.tree</field>
+        <field name="model">certification.master</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_certification_master" model="ir.actions.act_window">
+        <field name="name">Certification List</field>
+        <field name="res_model">certification.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Assign Certification Views -->
+    <record id="view_partner_certification_form" model="ir.ui.view">
+        <field name="name">res.partner.certification.form</field>
+        <field name="model">res.partner.certification</field>
+        <field name="arch" type="xml">
+            <form string="Assign Certification to Volunteer">
+                <group>
+                    <field name="partner_id"/>
+                    <field name="certification_id"/>
+                    <field name="issue_date"/>
+                    <field name="attachment_ids" widget="many2many_binary"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_partner_certification_tree" model="ir.ui.view">
+        <field name="name">res.partner.certification.tree</field>
+        <field name="model">res.partner.certification</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="certification_id"/>
+                <field name="issue_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_partner_certification" model="ir.actions.act_window">
+        <field name="name">Volunteer Certifications</field>
+        <field name="res_model">res.partner.certification</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_certification_root" name="Certifications"  parent="menu_volunteers" sequence="4"/>
+    <menuitem id="menu_certification_master" name="Certification List" parent="menu_certification_root" action="action_certification_master"/>
+    <menuitem id="menu_certification_assign" name="Assign Certifications" parent="menu_certification_root" action="action_partner_certification"/>
+</odoo>

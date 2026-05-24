@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="volunteer.section" id="vs_1">
+            <field name="name">برنامج روّاد التطوّع</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_2">
+            <field name="name">كفالة طالب/قرض تعليمي</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_3">
+            <field name="name">تطوّع من قبل جامعة</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_4">
+            <field name="name">منتسب الى الأقسام التربوية</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_5">
+            <field name="name">فترة تدريبية</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_6">
+            <field name="name">تطوع من قبل مدرسة</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_7">
+            <field name="name">تطوع حر</field>
+            <field name="from_xml">True</field>
+        </record>
+        <record model="volunteer.section" id="vs_8">
+            <field name="name">تطوع اختصاص</field>
+            <field name="from_xml">True</field>
+        </record>
+    </data>
+</odoo>

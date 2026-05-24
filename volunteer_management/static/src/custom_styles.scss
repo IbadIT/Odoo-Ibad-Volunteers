@@ -1,0 +1,16 @@
+// html[dir="rtl"] .o_datetime_picker .o_next.btn {
+//     transform: rotate(180deg)!important;
+//   }
+
+// html[dir="rtl"] .o_datetime_picker .o_previous.btn {
+//     transform: rotate(180deg)!important;
+//   }
+
+
+  .o_rtl .oi-chevron-left, .o_rtl .oi-chevron-right{
+	transform: rotate(0deg)!important;
+}
+
+.o_cell.flex-grow-1.flex-sm-grow-0{
+  min-width: fit-content;
+}
