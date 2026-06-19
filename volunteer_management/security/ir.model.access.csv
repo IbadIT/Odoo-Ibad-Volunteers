@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_volunteer_section,volunteer_section,model_volunteer_section,,1,1,1,1
+access_volunteer_department,volunteer_department,model_volunteer_department,,1,1,1,1
+access_volunteer_task_type,volunteer_task_type,model_volunteer_task_type,,1,1,1,1
 access_volunteer_section_detail,volunteer_section_detail,model_volunteer_section_detail,,1,1,1,1
 access_volunteer_identification_method,volunteer_identification_method,model_volunteer_identification_method,,1,1,1,1
 access_volunteer_nationality,volunteer_nationality,model_volunteer_nationality,,1,1,1,1

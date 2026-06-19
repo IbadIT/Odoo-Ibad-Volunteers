@@ -1,17 +1,18 @@
-from odoo import models, fields, api
 import logging
+
+from odoo import models, fields, api
+
 _logger = logging.getLogger(__name__)
-
-
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    is_company= fields.Boolean(default="false")
-    name_ar= fields.Char(string="Name (Arabic)")
+    is_company = fields.Boolean(default="false")
+    name_ar = fields.Char(string="Name (Arabic)")
     dob = fields.Date('Date of Birth', required=True)
-    status = fields.Selection([('active', 'Active'), ('not_active', 'Not Active'), ('stopped', 'Stopped')], default='active', required=True)
+    status = fields.Selection([('active', 'Active'), ('not_active', 'Not Active'), ('stopped', 'Stopped')],
+                              default='active', required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], required=True)
     veiled = fields.Selection([('veiled', 'Veiled'), ('not_veiled', 'Not Veiled')])
     take_photo = fields.Selection([('not_allowed', 'Not Allowed'), ('allowed', 'Allowed')], required=True)
@@ -26,18 +27,22 @@ class ResPartner(models.Model):
     section_id = fields.Many2one('volunteer.section', 'Volunteer Section')
     detail_id = fields.Many2one('volunteer.section.detail', 'Volunteer Section Detail')
     identification_method_id = fields.Many2one('volunteer.identification.method', 'Identification Method')
-    nationality = fields.Selection([('lebanese', 'Lebanese'), ('syrian', 'Syrian'), ('palestinian', 'Palestinian') ])
+    nationality = fields.Selection([('lebanese', 'Lebanese'), ('syrian', 'Syrian'), ('palestinian', 'Palestinian')])
     nationality_id = fields.Many2one('volunteer.nationality', string="Nationality", required=True)
     submission_form_date = fields.Datetime(string="Submission Date", readonly=True)
-    is_volunteer = fields.Boolean("Is a Volunteer", default=False)
-    beneficiary = fields.Selection([    ('yes', 'Yes'),  ('no', 'No'), ], string="Beneficiary", default='no')
+    participant_type = fields.Selection(
+        [('volunteer', 'Volunteer'), ('trainee', 'Trainee')],
+        string="Participant Type", index=True,
+    )
+    beneficiary = fields.Selection([('yes', 'Yes'), ('no', 'No'), ], string="Beneficiary", default='no')
     beneficiary_type = fields.Char(string="Beneficiary type")
     beneficiary_number = fields.Char(string="Beneficiary number")
     area = fields.Char(string="Area")
     street = fields.Char(string="Street")
     building_block = fields.Char(string="Building/Block")
     floor = fields.Char(string="Floor")
-    is_in_educational_section = fields.Selection([ ('yes', 'Yes'), ('no', 'No')], string="Is Beneficiary in Educational Section?", default='no')
+    is_in_educational_section = fields.Selection([('yes', 'Yes'), ('no', 'No')],
+                                                 string="Is Beneficiary in Educational Section?", default='no')
     educational_section_name = fields.Char(string="Section Name", required=False)
     # certificate_received= fields.Boolean(String= "Certificate Received")
     # certificate_issue_date = fields.Date( String = "Certificate Issue Date")
@@ -45,8 +50,8 @@ class ResPartner(models.Model):
     attachment_ids = fields.Many2many(
         'ir.attachment',
         'res_partner_attachment_rel',  # Relation table name
-        'partner_id',                  # Column linking to res.partner (id)
-        'attachment_id',               # Column linking to ir.attachment (id)
+        'partner_id',  # Column linking to res.partner (id)
+        'attachment_id',  # Column linking to ir.attachment (id)
         string='Documents',
         domain=[('res_model', '=', 'res.partner')],
         help='Attach related documents here'
@@ -56,8 +61,6 @@ class ResPartner(models.Model):
         'partner_id',
         string='Certifications'
     )
-
-
 
     governorate_id = fields.Many2one('res.governorate', string='Governorate')
     district_id = fields.Many2one(
@@ -75,19 +78,11 @@ class ResPartner(models.Model):
         else:
             self.district_id = False
             return {'domain': {'district_id': []}}
-            
-   
 
-    
-    
-    @api.model
-    def create(self, values):
-        # Set the submission date automatically
-        values['submission_form_date'] = fields.Datetime.now()
-        # Check if created from the volunteers context and set is_volunteer accordingly
-        if self.env.context.get('from_volunteers', False):
-            values['is_volunteer'] = True
-        return super(ResPartner, self).create(values)
-        
-
-    
+    @api.model_create_multi
+    def create(self, vals_list):
+        # Stamp the submission date automatically on creation. The participant
+        # category is supplied by each menu action via default_participant_type.
+        for values in vals_list:
+            values['submission_form_date'] = fields.Datetime.now()
+        return super().create(vals_list)

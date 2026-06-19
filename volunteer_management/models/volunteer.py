@@ -1,9 +1,10 @@
 from odoo import models, fields
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
 
 
 def rtn_valid_records(record_ids):
     return record_ids.filtered(lambda r: not r.from_xml and not r.partner_ids)
+
 
 class VolunteerSection(models.Model):
     _name = 'volunteer.section'

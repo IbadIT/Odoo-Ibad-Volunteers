@@ -42,7 +42,7 @@
             <field name="from_xml">True</field>
         </record>
         <record model="volunteer.section.detail" id="vsd_11">
-            <field name="name">عمر بن الخطاب </field>
+            <field name="name">عمر بن الخطاب</field>
             <field name="from_xml">True</field>
         </record>
         <record model="volunteer.section.detail" id="vsd_12">

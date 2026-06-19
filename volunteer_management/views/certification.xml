@@ -64,7 +64,9 @@
     </record>
 
     <!-- Menus -->
-    <menuitem id="menu_certification_root" name="Certifications"  parent="menu_volunteers" sequence="4"/>
-    <menuitem id="menu_certification_master" name="Certification List" parent="menu_certification_root" action="action_certification_master"/>
-    <menuitem id="menu_certification_assign" name="Assign Certifications" parent="menu_certification_root" action="action_partner_certification"/>
+    <menuitem id="menu_certification_root" name="Certifications" parent="menu_volunteers" sequence="4"/>
+    <menuitem id="menu_certification_master" name="Certification List" parent="menu_certification_root"
+              action="action_certification_master"/>
+    <menuitem id="menu_certification_assign" name="Assign Certifications" parent="menu_certification_root"
+              action="action_partner_certification"/>
 </odoo>

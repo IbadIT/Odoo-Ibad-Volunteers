@@ -1,121 +1,154 @@
 <odoo>
-  <data>
-    <!-- Volunteer Task Log Form View -->
-    <record id="view_volunteer_task_log_form" model="ir.ui.view">
-      <field name="name">volunteer.task.form</field>
-      <field name="model">volunteer.task</field>
-      <field name="arch" type="xml">
-        <form string="Volunteer Task Log">
-          <sheet>
-            <group>
-              <field name="volunteer_id"/>
-              <field name="section_id" options="{'no_open': True, 'no_create': True}"/>
-              <field name="detail_id" options="{'no_open': True, 'no_create': True}"/>
-            </group>
-            <group>
-              <field name="checkin_date"/>
-              <field name="checkout_date"/>
-              <field name="total_time" readonly="1"/>
-            </group>
-            <notebook>
-              <page string="Tasks">
-                <field name="task_line_ids">
-                  <tree editable="bottom">
-                    <field name="task_description"/>
-                    <field name="hours_spent"/>
-                  </tree>
-                  <form string="Task Line">
-                    <group>
-                      <field name="task_description"/>
-                      <field name="hours_spent"/>
-                    </group>
-                  </form>
-                </field>
-                <group>
+    <data>
+        <!-- Volunteer Task Log Form View -->
+        <record id="view_volunteer_task_log_form" model="ir.ui.view">
+            <field name="name">volunteer.task.form</field>
+            <field name="model">volunteer.task</field>
+            <field name="arch" type="xml">
+                <form string="Volunteer Task Log">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <field name="volunteer_id"/>
+                            <field name="department_id" options="{'no_quick_create': True}"/>
+                            <field name="section_id" options="{'no_open': True, 'no_create': True}"/>
+                            <field name="detail_id" options="{'no_open': True, 'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="checkin_date"/>
+                            <field name="checkout_date"/>
+                            <field name="total_time" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Tasks">
+                                <field name="task_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" readonly="1"/>
+                                        <field name="task_type_id"
+                                               domain="[('department_id', '=', parent.department_id)]"
+                                               options="{'no_quick_create': True}"/>
+                                        <field name="description"/>
+                                        <field name="hours_spent"/>
+                                    </tree>
+                                    <form string="Task Line">
+                                        <group>
+                                            <field name="task_type_id"
+                                                   domain="[('department_id', '=', parent.department_id)]"
+                                                   options="{'no_quick_create': True}"/>
+                                            <field name="description"/>
+                                            <field name="hours_spent"/>
+                                        </group>
+                                    </form>
+                                </field>
+                                <group>
+                                    <field name="total_hours" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Notes">
+                                <group>
+                                    <field name="notes" readonly="0"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button string="Save" type="object" class="btn-primary" special="save"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Volunteer Task Log Tree View -->
+        <record id="view_volunteer_task_log_tree" model="ir.ui.view">
+            <field name="name">volunteer.task.tree</field>
+            <field name="model">volunteer.task</field>
+            <field name="arch" type="xml">
+                <tree string="Volunteer Task Logs">
+                    <field name="volunteer_id"/>
+                    <field name="department_id"/>
+                    <field name="participant_type"/>
+                    <field name="checkin_date"/>
+                    <field name="checkout_date"/>
                     <field name="total_hours" readonly="1"/>
-                </group>
-              </page>
-               <page string="Notes">
-                <group>
-                  <field name="notes" readonly="0"/>
-                </group>
-              </page>
-            </notebook>	
-          </sheet>
-          <footer>
-            <button string="Save" type="object" class="btn-primary" special="save"/>
-            <button string="Cancel" class="btn-secondary" special="cancel"/>
-          </footer>
-        </form>
-      </field>
-    </record>
-    
-    <!-- Volunteer Task Log Tree View -->
-    <record id="view_volunteer_task_log_tree" model="ir.ui.view">
-      <field name="name">volunteer.task.tree</field>
-      <field name="model">volunteer.task</field>
-      <field name="arch" type="xml">
-        <tree string="Volunteer Task Logs">
-          <field name="volunteer_id"/>
-          <field name="checkin_date"/>
-          <field name="checkout_date"/>
-          <field name="total_hours" readonly="1"/>
-        </tree>
-      </field>
-    </record>
+                </tree>
+            </field>
+        </record>
 
 
-    <record id="view_volunteer_task_search" model="ir.ui.view">
-        <field name="name">volunteer.task.search</field>
-        <field name="model">volunteer.task</field>
-        <field name="arch" type="xml">
-            <search>
+        <record id="view_volunteer_task_search" model="ir.ui.view">
+            <field name="name">volunteer.task.search</field>
+            <field name="model">volunteer.task</field>
+            <field name="arch" type="xml">
+                <search>
 
-                <filter name="filter_checkin_today" string="Check-in Today"
-                    domain="[('checkin_day', '=', context_today())]" />
+                    <filter name="filter_checkin_today" string="Check-in Today"
+                            domain="[('checkin_day', '=', context_today())]"/>
+                    <separator/>
+                    <filter name="filter_task_volunteers" string="Volunteers"
+                            domain="[('participant_type', '=', 'volunteer')]"/>
+                    <filter name="filter_task_trainees" string="Trainees"
+                            domain="[('participant_type', '=', 'trainee')]"/>
 
 
+                    <!-- Built-in date range support (UI calendar filtering) -->
+                    <field name="checkin_date"/>
+                    <field name="checkout_date"/>
+                    <!-- Optional predefined filters here -->
 
-                <!-- Built-in date range support (UI calendar filtering) -->
-                <field name="checkin_date"/>
-                <field name="checkout_date"/>
-                <!-- Optional predefined filters here -->
+                    <group expand="1" string="Group By">
+                        <filter name="group_by_department" string="Department" context="{'group_by': 'department_id'}"/>
+                        <filter name="group_by_category" string="Category" context="{'group_by': 'participant_type'}"/>
+                        <filter name="group_by_volunteer" string="Volunteer" context="{'group_by': 'volunteer_id'}"/>
+                        <filter name="group_by_section" string="Section" context="{'group_by': 'section_id'}"/>
+                        <filter name="group_by_detail" string="Section Detail" context="{'group_by': 'detail_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
-                <group expand="1" string="Group By">
-                    <filter name="group_by_volunteer" string="Volunteer" context="{'group_by': 'volunteer_id'}"/>
-                    <filter name="group_by_section" string="Section" context="{'group_by': 'section_id'}"/>
-                    <filter name="group_by_detail" string="Section Detail" context="{'group_by': 'detail_id'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
 
-    
-    <!-- Action for Volunteer Task Logs -->
-    <record id="action_volunteer_task_log" model="ir.actions.act_window">
-      <field name="name">Volunteer Task Logs</field>
-      <field name="res_model">volunteer.task</field>
-      <field name="view_mode">kanban,tree,form,graph,pivot</field>
-    </record>
+        <!-- Volunteer Task Log Pivot View (hours / volunteers by department) -->
+        <record id="view_volunteer_task_pivot" model="ir.ui.view">
+            <field name="name">volunteer.task.pivot</field>
+            <field name="model">volunteer.task</field>
+            <field name="arch" type="xml">
+                <pivot string="Volunteer Hours by Department">
+                    <field name="department_id" type="row"/>
+                    <field name="volunteer_id" type="row"/>
+                    <field name="total_hours" type="measure"/>
+                    <field name="total_time" type="measure"/>
+                </pivot>
+            </field>
+        </record>
 
-    <!-- Menu Item for Task Logs under the Volunteering main menu -->
-    <!-- <menuitem id="menu_volunteer_task_logs"
-        name="Task Logs"
-        action="volunteer_management.action_volunteer_task_log"
-        parent="menu_volunteers"
-        sequence="3"/> -->
+        <!-- Action for Volunteer Task Logs -->
+        <record id="action_volunteer_task_log" model="ir.actions.act_window">
+            <field name="name">Volunteer Task Logs</field>
+            <field name="res_model">volunteer.task</field>
+            <field name="view_mode">kanban,tree,form,graph,pivot</field>
+        </record>
 
-<!-- Main dropdown container -->
-<menuitem id="menu_volunteer_task_logs_main"
-          name="Task Logs"
-          parent="menu_volunteers"
-          sequence="3"/>
+        <!-- Menu Item for Task Logs under the Volunteering main menu -->
+        <!-- <menuitem id="menu_volunteer_task_logs"
+            name="Task Logs"
+            action="volunteer_management.action_volunteer_task_log"
+            parent="menu_volunteers"
+            sequence="3"/> -->
 
-<!-- Submenu: Task Logs -->
-<menuitem id="menu_volunteer_task_logs"
-          name="Task Logs"
-          parent="menu_volunteer_task_logs_main"
-          action="volunteer_management.action_volunteer_task_log"
-          sequence="1"/>
-  </data>
+        <!-- Main dropdown container -->
+        <menuitem id="menu_volunteer_task_logs_main"
+                  name="Task Logs"
+                  parent="menu_volunteers"
+                  sequence="3"/>
+
+        <!-- Submenu: Task Logs -->
+        <menuitem id="menu_volunteer_task_logs"
+                  name="Task Logs"
+                  parent="menu_volunteer_task_logs_main"
+                  action="volunteer_management.action_volunteer_task_log"
+                  sequence="1"/>
+    </data>
 </odoo>

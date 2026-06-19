@@ -1,114 +1,114 @@
 <odoo>
-  <record model="ir.ui.view" id="volunteer_section_tree">
-    <field name="name">Volunteer Sections</field>
-    <field name="model">volunteer.section</field>
-    <field name="arch" type="xml">
-      <tree editable="bottom">
-        <field name="name"/>
-      </tree>
-    </field>
-  </record>
+    <record model="ir.ui.view" id="volunteer_section_tree">
+        <field name="name">Volunteer Sections</field>
+        <field name="model">volunteer.section</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
-  <record model="ir.ui.view" id="volunteer_section_detail_tree">
-    <field name="name">Volunteer Section Details</field>
-    <field name="model">volunteer.section.detail</field>
-    <field name="arch" type="xml">
-      <tree editable="bottom">
-        <field name="name"/>
-      </tree>
-    </field>
-  </record>
+    <record model="ir.ui.view" id="volunteer_section_detail_tree">
+        <field name="name">Volunteer Section Details</field>
+        <field name="model">volunteer.section.detail</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
-  <record model="ir.ui.view" id="volunteer_identification_method_tree">
-    <field name="name">Volunteer Identification Methods</field>
-    <field name="model">volunteer.identification.method</field>
-    <field name="arch" type="xml">
-      <tree editable="bottom">
-        <field name="name"/>
-      </tree>
-    </field>
-  </record>
+    <record model="ir.ui.view" id="volunteer_identification_method_tree">
+        <field name="name">Volunteer Identification Methods</field>
+        <field name="model">volunteer.identification.method</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
     <record model="ir.ui.view" id="volunteer_nationality_tree">
-    <field name="name">Volunteer Nationality</field>
-    <field name="model">volunteer.nationality</field>
-    <field name="arch" type="xml">
-      <tree editable="bottom">
-        <field name="name"/>
-      </tree>
-    </field>
-  </record>
+        <field name="name">Volunteer Nationality</field>
+        <field name="model">volunteer.nationality</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
-  <record id="action_window_volunteer_section" model="ir.actions.act_window">
-    <field name="name">Volunteer Section</field>
-    <field name="res_model">volunteer.section</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="volunteer_section_tree"/>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-          Create sections
-      </p>
-    </field>
-  </record>
-  
-  <record id="action_window_volunteer_section_detail" model="ir.actions.act_window">
-    <field name="name">Volunteer Section Detail</field>
-    <field name="res_model">volunteer.section.detail</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="volunteer_section_detail_tree"/>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-          Create section details
-      </p>
-    </field>
-  </record>
-  
-  <record id="action_window_volunteer_identification_method" model="ir.actions.act_window">
-    <field name="name">Volunteer Identification Method</field>
-    <field name="res_model">volunteer.identification.method</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="volunteer_identification_method_tree"/>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-          Create identification methods
-      </p>
-    </field>
-  </record>
+    <record id="action_window_volunteer_section" model="ir.actions.act_window">
+        <field name="name">Volunteer Section</field>
+        <field name="res_model">volunteer.section</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="volunteer_section_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create sections
+            </p>
+        </field>
+    </record>
+
+    <record id="action_window_volunteer_section_detail" model="ir.actions.act_window">
+        <field name="name">Volunteer Section Detail</field>
+        <field name="res_model">volunteer.section.detail</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="volunteer_section_detail_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create section details
+            </p>
+        </field>
+    </record>
+
+    <record id="action_window_volunteer_identification_method" model="ir.actions.act_window">
+        <field name="name">Volunteer Identification Method</field>
+        <field name="res_model">volunteer.identification.method</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="volunteer_identification_method_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create identification methods
+            </p>
+        </field>
+    </record>
 
     <record id="action_window_volunteer_nationality" model="ir.actions.act_window">
-    <field name="name">Volunteer Nationality</field>
-    <field name="res_model">volunteer.nationality</field>
-    <field name="view_mode">tree</field>
-    <field name="view_id" ref="volunteer_nationality_tree"/>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-          Add nationalities
-      </p>
-    </field>
-  </record>
+        <field name="name">Volunteer Nationality</field>
+        <field name="res_model">volunteer.nationality</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="volunteer_nationality_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add nationalities
+            </p>
+        </field>
+    </record>
 
-  <menuitem name="Volunteer Sections" 
-  id="menu_volunteer_section" 
-  action="action_window_volunteer_section" 
-  parent="res_partner_menu_volunteers_config"
- />
+    <menuitem name="Volunteer Sections"
+              id="menu_volunteer_section"
+              action="action_window_volunteer_section"
+              parent="res_partner_menu_volunteers_config"
+    />
 
-  <menuitem name="Volunteer Section Details" 
-  id="menu_volunteer_section_detail" 
-  action="action_window_volunteer_section_detail" 
-  parent="res_partner_menu_volunteers_config"
- />
+    <menuitem name="Volunteer Section Details"
+              id="menu_volunteer_section_detail"
+              action="action_window_volunteer_section_detail"
+              parent="res_partner_menu_volunteers_config"
+    />
 
-  <menuitem name="Volunteer Identification Methods" 
-  id="menu_volunteer_identification_method" 
-  action="action_window_volunteer_identification_method" 
-  parent="res_partner_menu_volunteers_config"
- />
+    <menuitem name="Volunteer Identification Methods"
+              id="menu_volunteer_identification_method"
+              action="action_window_volunteer_identification_method"
+              parent="res_partner_menu_volunteers_config"
+    />
 
-   <menuitem name="Nationalities" 
-  id="menu_volunteer_nationality" 
-  action="action_window_volunteer_nationality" 
-  parent="res_partner_menu_volunteers_config"
- />
+    <menuitem name="Nationalities"
+              id="menu_volunteer_nationality"
+              action="action_window_volunteer_nationality"
+              parent="res_partner_menu_volunteers_config"
+    />
 
 </odoo>

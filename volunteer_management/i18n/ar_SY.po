@@ -509,7 +509,7 @@ msgstr "نوع الاستفادة"
 
 #. module: volunteer_management
 #: model:ir.model.fields,field_description:volunteer_management.field_res_partner__beneficiary_number
-msgid "Beneficiary number
+msgid "Beneficiary number"
 msgstr "رقم المستفيد"
 
 #. module: volunteer_management
@@ -526,3 +526,28 @@ msgstr "مستفيد"
 #: model:ir.model.fields,field_description:volunteer_management.field_res_partner__is_in_educational_section
 msgid "Is Beneficiary in Educational Section?"
 msgstr "هل المستفيد في القسم التربوي؟"
+
+#. module: volunteer_management
+#: model:ir.model.fields,field_description:volunteer_management.field_res_partner__participant_type
+msgid "Participant Type"
+msgstr "نوع المشارك"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__participant_type__volunteer
+msgid "Volunteer"
+msgstr "متطوع"
+
+#. module: volunteer_management
+#: model:ir.model.fields.selection,name:volunteer_management.selection__res_partner__participant_type__trainee
+msgid "Trainee"
+msgstr "متدرب"
+
+#. module: volunteer_management
+#: model_terms:ir.ui.view,arch_db:volunteer_management.view_res_partner_filter_volunteer
+msgid "Volunteers"
+msgstr "المتطوعين"
+
+#. module: volunteer_management
+#: model_terms:ir.ui.view,arch_db:volunteer_management.view_res_partner_filter_volunteer
+msgid "Trainees"
+msgstr "المتدربين"

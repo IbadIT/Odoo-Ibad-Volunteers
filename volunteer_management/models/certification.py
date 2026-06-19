@@ -1,11 +1,13 @@
 from odoo import models, fields
 
+
 class CertificationMaster(models.Model):
     _name = 'certification.master'
     _description = 'Certification Master List'
 
     name = fields.Char(string='عنوان الشهادة', required=True)
     description = fields.Text(string='تفاصيل الشهادة')
+
 
 class ResPartnerCertification(models.Model):
     _name = 'res.partner.certification'

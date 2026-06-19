@@ -8,9 +8,20 @@
         <field name="arch" type="xml">
             <form string="Volunteer Time Report">
                 <group>
+                    <field name="category"/>
                     <field name="volunteer_id"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
+                </group>
+                <group string="Totals">
+                    <group string="Volunteers">
+                        <field name="volunteer_total_time" readonly="1"/>
+                        <field name="volunteer_task_hours" readonly="1"/>
+                    </group>
+                    <group string="Trainees">
+                        <field name="trainee_total_time" readonly="1"/>
+                        <field name="trainee_task_hours" readonly="1"/>
+                    </group>
                 </group>
                 <group>
                     <field name="report_result" readonly="1" nolabel="1"/>

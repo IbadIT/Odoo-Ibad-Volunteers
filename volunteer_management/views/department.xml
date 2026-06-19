@@ -1,0 +1,115 @@
+<odoo>
+    <!-- ============ Volunteer Department ============ -->
+    <record id="volunteer_department_tree" model="ir.ui.view">
+        <field name="name">volunteer.department.tree</field>
+        <field name="model">volunteer.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="volunteer_department_form" model="ir.ui.view">
+        <field name="name">volunteer.department.form</field>
+        <field name="model">volunteer.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Tasks">
+                            <field name="task_type_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_window_volunteer_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">volunteer.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the departments where volunteering takes place
+            </p>
+        </field>
+    </record>
+
+    <!-- ============ Volunteer Task Type ============ -->
+    <record id="volunteer_task_type_tree" model="ir.ui.view">
+        <field name="name">volunteer.task.type.tree</field>
+        <field name="model">volunteer.task.type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="department_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="volunteer_task_type_form" model="ir.ui.view">
+        <field name="name">volunteer.task.type.form</field>
+        <field name="model">volunteer.task.type</field>
+        <field name="arch" type="xml">
+            <form string="Department Task">
+                <sheet>
+                    <group>
+                        <field name="department_id"/>
+                        <field name="name"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_window_volunteer_task_type" model="ir.actions.act_window">
+        <field name="name">Department Tasks</field>
+        <field name="res_model">volunteer.task.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_group_by_department': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the tasks available under each department
+            </p>
+        </field>
+    </record>
+
+    <record id="volunteer_task_type_search" model="ir.ui.view">
+        <field name="name">volunteer.task.type.search</field>
+        <field name="model">volunteer.task.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="department_id"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_by_department" string="Department"
+                            context="{'group_by': 'department_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============ Menus (under Volunteering > Configuration) ============ -->
+    <menuitem name="Departments"
+              id="menu_volunteer_department"
+              action="action_window_volunteer_department"
+              parent="res_partner_menu_volunteers_config"
+              sequence="10"/>
+
+    <menuitem name="Department Tasks"
+              id="menu_volunteer_task_type"
+              action="action_window_volunteer_task_type"
+              parent="res_partner_menu_volunteers_config"
+              sequence="11"/>
+</odoo>
