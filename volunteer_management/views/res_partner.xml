@@ -69,11 +69,21 @@
                         <notebook position="inside">
                             <page string="Certifications">
                                 <field name="certification_ids" context="{'default_partner_id': active_id}">
-                                    <tree editable="bottom">
+                                    <tree decoration-danger="is_expired">
                                         <field name="certification_id"/>
                                         <field name="issue_date"/>
+                                        <field name="expiration_date"/>
+                                        <field name="is_expired" column_invisible="1"/>
                                         <field name="attachment_ids"/>
                                     </tree>
+                                    <form>
+                                        <group>
+                                            <field name="certification_id"/>
+                                            <field name="issue_date"/>
+                                            <field name="expiration_date"/>
+                                            <field name="attachment_ids" widget="many2many_binary"/>
+                                        </group>
+                                    </form>
                                 </field>
                             </page>
                         </notebook>
@@ -152,8 +162,7 @@
         <menuitem name="Volunteering"
                   id="menu_volunteers"
                   sequence="20"
-                  web_icon="contacts,static/description/icon.png"
-                  groups="base.group_user,base.group_partner_manager"/>
+                  web_icon="contacts,static/description/icon.png"/>
 
         <menuitem id="res_partner_menu_volunteers"
                   name="Volunteers"
@@ -170,7 +179,6 @@
         <menuitem id="res_partner_menu_volunteers_config"
                   name="Configuration"
                   parent="menu_volunteers"
-                  groups="base.group_system"
                   sequence="90"/>
 
     </data>

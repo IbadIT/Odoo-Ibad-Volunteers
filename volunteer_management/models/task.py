@@ -1,5 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class VolunteerTask(models.Model):
@@ -74,6 +75,31 @@ class VolunteerTask(models.Model):
                 task.total_time = time_diff
             else:
                 task.total_time = 0
+
+    def _check_hours_balance(self):
+        """Logged task hours may not exceed the time actually spent on site.
+
+        On-site hours are derived from checkin/checkout here rather than read from
+        the stored `total_time`: when the dates and a task line change in the same
+        save, that stored value has not been recomputed yet and the check would
+        compare the new hours against the previous on-site total.
+        """
+        for task in self:
+            if not (task.checkin_date and task.checkout_date):
+                # Still checked in - there is nothing to compare against yet. The
+                # check runs again once a check-out date is entered.
+                continue
+            onsite_hours = (task.checkout_date - task.checkin_date).total_seconds() / 3600.0
+            logged_hours = sum(task.task_line_ids.mapped('hours_spent'))
+            if float_compare(logged_hours, onsite_hours, precision_digits=2) > 0:
+                raise ValidationError(
+                    _("The total hours spent on tasks (%.2f hours) cannot exceed the total time spent onsite (%.2f hours).")
+                    % (logged_hours, onsite_hours)
+                )
+
+    @api.constrains('checkin_date', 'checkout_date', 'task_line_ids')
+    def _check_task_hours(self):
+        self._check_hours_balance()
 
     @api.depends('volunteer_id', 'department_id')
     def _compute_name(self):
@@ -161,13 +187,6 @@ class VolunteerTaskLogLine(models.Model):
 
     @api.constrains('hours_spent', 'task_log_id')
     def _check_hours_spent(self):
-        for line in self:
-            if line.task_log_id:
-                total_time = line.task_log_id.total_time
-                total_hours_spent = sum(line.task_log_id.task_line_ids.mapped('hours_spent'))
-                # Check if the total hours spent exceeds the total time onsite
-                if total_hours_spent > total_time:
-                    raise ValidationError(
-                        _("The total hours spent on tasks (%s hours) cannot exceed the total time spent onsite (%s hours).")
-                        % (total_hours_spent, total_time)
-                    )
+        # Needed alongside the log's own constraint: @api.constrains ignores dotted
+        # paths, so a line written directly would not trigger the parent's check.
+        self.mapped('task_log_id')._check_hours_balance()

@@ -39,6 +39,7 @@
                     <field name="partner_id"/>
                     <field name="certification_id"/>
                     <field name="issue_date"/>
+                    <field name="expiration_date"/>
                     <field name="attachment_ids" widget="many2many_binary"/>
                 </group>
             </form>
@@ -49,10 +50,12 @@
         <field name="name">res.partner.certification.tree</field>
         <field name="model">res.partner.certification</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-danger="is_expired">
                 <field name="partner_id"/>
                 <field name="certification_id"/>
                 <field name="issue_date"/>
+                <field name="expiration_date"/>
+                <field name="is_expired" column_invisible="1"/>
             </tree>
         </field>
     </record>
