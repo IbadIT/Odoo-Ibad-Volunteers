@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_fleet_generators" name="Generators" parent="fleet.fleet_vehicles"
+              action="action_fleet_generators" sequence="1" groups="fleet.fleet_group_user"/>
+    <menuitem id="menu_fleet_fuel_log" name="Fuel Logs" parent="fleet.fleet_vehicles"
+              action="action_fleet_fuel_log" sequence="4" groups="fleet.fleet_group_user"/>
+    <menuitem id="menu_fleet_fuel_cost_report" name="Fuel Costs" parent="fleet.menu_fleet_reporting"
+              action="action_fleet_fuel_cost_report" sequence="10" groups="fleet.fleet_group_manager"/>
+    <menuitem id="menu_fleet_fuel_consumption_report" name="Fuel Consumption" parent="fleet.menu_fleet_reporting"
+              action="action_fleet_fuel_consumption_report" sequence="11" groups="fleet.fleet_group_manager"/>
+</odoo>

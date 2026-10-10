@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_rule_fuel_log_visibility_user" model="ir.rule">
+        <field name="name">Fuel log: users see logs of the vehicles they drive</field>
+        <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
+        <field name="groups" eval="[Command.link(ref('fleet.fleet_group_user'))]"/>
+        <field name="domain_force">[('vehicle_id.driver_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="fleet_rule_fuel_log_visibility_manager" model="ir.rule">
+        <field name="name">Fuel log: managers see all logs</field>
+        <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
+        <field name="groups" eval="[Command.link(ref('fleet.fleet_group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="ir_rule_fleet_vehicle_log_fuel" model="ir.rule">
+        <field name="name">Fuel log: multi-company</field>
+        <field name="model_id" ref="model_fleet_vehicle_log_fuel"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

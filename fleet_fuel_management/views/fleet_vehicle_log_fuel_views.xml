@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_vehicle_log_fuel_view_tree" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.tree</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Logs" decoration-danger="is_anomaly">
+                <field name="date"/>
+                <field name="vehicle_id"/>
+                <field name="vehicle_type" optional="hide"/>
+                <field name="fuel_type" optional="show"/>
+                <field name="liters" sum="Total Liters"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="price_per_liter" optional="show"/>
+                <field name="amount" sum="Total Cost"/>
+                <field name="odometer" optional="show"/>
+                <field name="is_full_tank" optional="show"/>
+                <field name="consumption" optional="show"/>
+                <field name="vendor_id" optional="hide"/>
+                <field name="filled_by_id" optional="hide"/>
+                <field name="is_anomaly" column_invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_log_fuel_view_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.form</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Log">
+                <sheet>
+                    <widget name="web_ribbon" title="Abnormal" bg_color="text-bg-danger" invisible="not is_anomaly"/>
+                    <field name="is_anomaly" invisible="1"/>
+                    <field name="vehicle_type" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <group>
+                        <group string="Refill">
+                            <field name="vehicle_id"/>
+                            <field name="date"/>
+                            <field name="fuel_type"/>
+                            <field name="liters"/>
+                            <field name="price_per_liter"/>
+                            <field name="amount"/>
+                        </group>
+                        <group string="Details">
+                            <field name="vendor_id"/>
+                            <field name="filled_by_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group invisible="vehicle_type == 'generator'">
+                        <group string="Odometer">
+                            <label for="odometer"/>
+                            <div class="o_row">
+                                <field name="odometer" required="vehicle_type != 'generator'"/>
+                                <field name="odometer_unit"/>
+                            </div>
+                            <field name="is_full_tank"/>
+                        </group>
+                        <group string="Consumption">
+                            <field name="segment_km"/>
+                            <field name="segment_liters"/>
+                            <field name="consumption"/>
+                            <field name="deviation_pct"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notes..."/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_log_fuel_view_search" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.search</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <search string="Fuel Logs">
+                <field name="vehicle_id"/>
+                <field name="vendor_id"/>
+                <field name="filled_by_id"/>
+                <filter string="Vehicles" name="vehicles" domain="[('vehicle_type', '!=', 'generator')]"/>
+                <filter string="Generators" name="generators" domain="[('vehicle_type', '=', 'generator')]"/>
+                <separator/>
+                <filter string="Full Tank" name="full_tank" domain="[('is_full_tank', '=', True)]"/>
+                <filter string="Abnormal Consumption" name="anomalies" domain="[('is_anomaly', '=', True)]"/>
+                <separator/>
+                <filter string="Date" name="filter_date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Vehicle" name="groupby_vehicle" context="{'group_by': 'vehicle_id'}"/>
+                    <filter string="Vehicle Type" name="groupby_vehicle_type" context="{'group_by': 'vehicle_type'}"/>
+                    <filter string="Fuel Type" name="groupby_fuel_type" context="{'group_by': 'fuel_type'}"/>
+                    <filter string="Month" name="groupby_month" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_log_fuel_view_pivot" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.pivot</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <pivot string="Fuel Costs" sample="1">
+                <field name="vehicle_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="liters" type="measure"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_log_fuel_view_graph" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.graph</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="arch" type="xml">
+            <graph string="Fuel Costs" type="bar" sample="1">
+                <field name="date" interval="month"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Consumption report views: priority 20 so they never become the model's default views. -->
+    <record id="fleet_vehicle_log_fuel_view_pivot_consumption" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.pivot.consumption</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <pivot string="Fuel Consumption">
+                <field name="vehicle_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="segment_km" type="measure"/>
+                <field name="segment_liters" type="measure"/>
+                <field name="consumption" type="measure"/>
+                <field name="deviation_pct" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_log_fuel_view_graph_consumption" model="ir.ui.view">
+        <field name="name">fleet.vehicle.log.fuel.graph.consumption</field>
+        <field name="model">fleet.vehicle.log.fuel</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <graph string="Fuel Consumption" type="line">
+                <field name="date" interval="month"/>
+                <field name="consumption" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_fleet_fuel_log" model="ir.actions.act_window">
+        <field name="name">Fuel Logs</field>
+        <field name="res_model">fleet.vehicle.log.fuel</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record a first fuel refill</p>
+            <p>Log each refill of a vehicle or generator: liters, price and odometer.</p>
+        </field>
+    </record>
+
+    <record id="action_fleet_fuel_cost_report" model="ir.actions.act_window">
+        <field name="name">Fuel Costs</field>
+        <field name="res_model">fleet.vehicle.log.fuel</field>
+        <field name="view_mode">pivot,graph,tree,form</field>
+    </record>
+
+    <!-- Closed segments only: Float stores 0.0, not NULL, so partial-fill rows would drag avg toward zero. -->
+    <record id="action_fleet_fuel_consumption_report" model="ir.actions.act_window">
+        <field name="name">Fuel Consumption</field>
+        <field name="res_model">fleet.vehicle.log.fuel</field>
+        <field name="view_mode">pivot,graph,tree,form</field>
+        <field name="domain">[('vehicle_type', '!=', 'generator'), ('segment_km', '>', 0)]</field>
+        <field name="view_ids" eval="[Command.clear(),
+            Command.create({'view_mode': 'pivot', 'view_id': ref('fleet_vehicle_log_fuel_view_pivot_consumption')}),
+            Command.create({'view_mode': 'graph', 'view_id': ref('fleet_vehicle_log_fuel_view_graph_consumption')}),
+            Command.create({'view_mode': 'tree', 'view_id': ref('fleet_vehicle_log_fuel_view_tree')})]"/>
+    </record>
+</odoo>
